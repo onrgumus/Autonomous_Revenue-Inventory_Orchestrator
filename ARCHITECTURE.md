@@ -1,4 +1,4 @@
-```mermaid
+mermaid
 graph TD
 
 subgraph "Presentation Layer (Modern Web UI)"
@@ -56,4 +56,3 @@ style Scraper fill:#475569,stroke:#ffffff,stroke-width:2px,color:#ffffff
 
 style UI fill:#0f766e,stroke:#ffffff,stroke-width:2px,color:#ffffff
 style WS fill:#0891b2,stroke:#ffffff,stroke-width:2px,color:#ffffff
-```
