@@ -1,58 +1,38 @@
-mermaid
-graph TD
+```mermaid
+flowchart TB
 
-subgraph "Presentation Layer (Modern Web UI)"
-    UI["React / Next.js Strategic Dashboard"]
-    WS["Real-time WebSocket / REST API"]
+subgraph UI["Presentation Layer"]
+    Dashboard["📊 Strategic Dashboard"]
 end
 
-subgraph "Intelligence & Orchestration (Agentic Layer)"
-    LLM["Claude 3.5 Sonnet / GPT-4o"]
-    Agent["MCP Orchestrator"]
-    Reasoning["Strategic Reasoning Engine"]
+subgraph Agent["AI Agent Layer"]
+    Orchestrator["MCP Orchestrator"]
+    LLM["Claude / GPT-4o"]
 end
 
-subgraph "MCP Server Layer (Standardized Protocols)"
-    SalesMCP["Sales Data MCP Server"]
-    MarketMCP["Market Intelligence MCP Server"]
-    SimMCP["Revenue Simulation MCP Server"]
+subgraph MCP["MCP Services"]
+    Sales["Sales MCP"]
+    Market["Market MCP"]
+    Revenue["Simulation MCP"]
 end
 
-subgraph "Enterprise Data Infrastructure"
-    ERP[("Enterprise ERP<br/>SAP / Oracle")]
-    DW[("Cloud Data Warehouse<br/>Snowflake / BigQuery")]
-    Scraper["Automated Market Scraper Service"]
+subgraph Data["Enterprise Data"]
+    Warehouse[("Snowflake / BigQuery")]
+    ERP["SAP / Oracle ERP"]
+    MarketData["Market Intelligence"]
 end
 
-%% Data Flow
-ERP -->|"CDC / ETL Pipelines"| DW
-Scraper -->|"Daily Market Sync"| DW
+Dashboard <--> Orchestrator
+Orchestrator <--> LLM
 
-DW --> SalesMCP
-DW --> MarketMCP
+Orchestrator --> Sales
+Orchestrator --> Market
+Orchestrator --> Revenue
 
-UI <--> WS
-WS <--> Agent
+Sales --> Warehouse
+Market --> Warehouse
+Revenue --> Warehouse
 
-Agent <--> LLM
-Agent --> Reasoning
-
-Agent <--> SalesMCP
-Agent <--> MarketMCP
-Agent <--> SimMCP
-
-%% Styling
-style LLM fill:#6366f1,stroke:#ffffff,stroke-width:2px,color:#ffffff
-style Agent fill:#3b82f6,stroke:#ffffff,stroke-width:2px,color:#ffffff
-style Reasoning fill:#8b5cf6,stroke:#ffffff,stroke-width:2px,color:#ffffff
-
-style SalesMCP fill:#10b981,stroke:#ffffff,stroke-width:2px,color:#ffffff
-style MarketMCP fill:#10b981,stroke:#ffffff,stroke-width:2px,color:#ffffff
-style SimMCP fill:#f43f5e,stroke:#ffffff,stroke-width:2px,color:#ffffff
-
-style ERP fill:#475569,stroke:#ffffff,stroke-width:2px,color:#ffffff
-style DW fill:#1e293b,stroke:#ffffff,stroke-width:2px,color:#ffffff
-style Scraper fill:#475569,stroke:#ffffff,stroke-width:2px,color:#ffffff
-
-style UI fill:#0f766e,stroke:#ffffff,stroke-width:2px,color:#ffffff
-style WS fill:#0891b2,stroke:#ffffff,stroke-width:2px,color:#ffffff
+ERP --> Warehouse
+MarketData --> Warehouse
+```
