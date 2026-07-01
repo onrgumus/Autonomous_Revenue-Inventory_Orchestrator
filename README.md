@@ -124,7 +124,40 @@ The system doesn't just show data; it provides **Strategic Recommendations**:
 - [ ] Integration with live SAP/Oracle ERP APIs.
 - [ ] Multi-currency support for global markets.
 - [ ] Predictive Demand Sensing using external weather and holiday data.
-
+┌──────────────────────────────────────────────────────────────────────┐
+│                      Strategic Business Dashboard                    │
+│                     React • Next.js • Real-time UI                  │
+└───────────────────────────────┬──────────────────────────────────────┘
+                                │
+                       REST API / WebSocket
+                                │
+                                ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                    AI Decision & Orchestration Layer                 │
+│                                                                      │
+│                    MCP Orchestrator (FastMCP)                        │
+│                                                                      │
+│        Claude 3.5 Sonnet / GPT-4o • Strategic Reasoning              │
+└───────────────┬──────────────────────┬───────────────────────────────┘
+                │                      │
+                ▼                      ▼
+      ┌─────────────────┐     ┌─────────────────┐
+      │ Sales MCP       │     │ Market MCP      │
+      │ Data Analysis   │     │ Intelligence    │
+      └────────┬────────┘     └────────┬────────┘
+               │                       │
+               └──────────┬────────────┘
+                          ▼
+              ┌──────────────────────────┐
+              │ Revenue Simulation MCP   │
+              └──────────┬───────────────┘
+                         │
+                         ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                 Enterprise Data Platform                             │
+│                                                                      │
+│   SAP / Oracle ERP • Snowflake • BigQuery • Market Data             │
+└──────────────────────────────────────────────────────────────────────┘
 ---
 **Developed by Onur Gümüş**
 *Bridging the gap between Enterprise Data and Agentic AI.*
