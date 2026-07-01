@@ -1,4 +1,3 @@
-```mermaid
 flowchart TB
 
 subgraph UI["Presentation Layer"]
@@ -35,4 +34,3 @@ Revenue --> Warehouse
 
 ERP --> Warehouse
 MarketData --> Warehouse
-```
