@@ -1,36 +1,34 @@
-flowchart TB
-
-subgraph UI["Presentation Layer"]
-    Dashboard["📊 Strategic Dashboard"]
-end
-
-subgraph Agent["AI Agent Layer"]
-    Orchestrator["MCP Orchestrator"]
-    LLM["Claude / GPT-4o"]
-end
-
-subgraph MCP["MCP Services"]
-    Sales["Sales MCP"]
-    Market["Market MCP"]
-    Revenue["Simulation MCP"]
-end
-
-subgraph Data["Enterprise Data"]
-    Warehouse[("Snowflake / BigQuery")]
-    ERP["SAP / Oracle ERP"]
-    MarketData["Market Intelligence"]
-end
-
-Dashboard <--> Orchestrator
-Orchestrator <--> LLM
-
-Orchestrator --> Sales
-Orchestrator --> Market
-Orchestrator --> Revenue
-
-Sales --> Warehouse
-Market --> Warehouse
-Revenue --> Warehouse
-
-ERP --> Warehouse
-MarketData --> Warehouse
+┌──────────────────────────────────────────────────────────────────────┐
+│                      Strategic Business Dashboard                    │
+│                     React • Next.js • Real-time UI                  │
+└───────────────────────────────┬──────────────────────────────────────┘
+                                │
+                       REST API / WebSocket
+                                │
+                                ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                    AI Decision & Orchestration Layer                 │
+│                                                                      │
+│                    MCP Orchestrator (FastMCP)                        │
+│                                                                      │
+│        Claude 3.5 Sonnet / GPT-4o • Strategic Reasoning              │
+└───────────────┬──────────────────────┬───────────────────────────────┘
+                │                      │
+                ▼                      ▼
+      ┌─────────────────┐     ┌─────────────────┐
+      │ Sales MCP       │     │ Market MCP      │
+      │ Data Analysis   │     │ Intelligence    │
+      └────────┬────────┘     └────────┬────────┘
+               │                       │
+               └──────────┬────────────┘
+                          ▼
+              ┌──────────────────────────┐
+              │ Revenue Simulation MCP   │
+              └──────────┬───────────────┘
+                         │
+                         ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                 Enterprise Data Platform                             │
+│                                                                      │
+│   SAP / Oracle ERP • Snowflake • BigQuery • Market Data             │
+└──────────────────────────────────────────────────────────────────────┘
